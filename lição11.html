@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposto de renda</title>
+</head>
+<body>
+    informe sua renda anual:
+    <input type="text" id="input_renda"><br>
+    <button onclick="calcularimposto()">Calcular imposto</button>
+
+
+    <script>
+        function calcularimposto(){
+            const renda = input_renda.value
+
+            if(renda <=22000){
+                alert ('Isento de imposto!')
+
+            } else if(renda <=50000){
+                alert ('Alíquota de 15%')
+            } else alert ('Alíquota de 27,5%')
+
+
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>

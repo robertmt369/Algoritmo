@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>indice de massa corporal</title>
+</head>
+<body>
+    informe sua altura:
+    <input type="text" id="input_altura"><br>
+    informe seu peso:
+    <input type="text" id="input_peso"><br>
+    <button onclick="calcularIMC()">Calcular IMC</button>
+
+
+    <script>
+        function calcularIMC(){
+            var altura = input_altura.value
+            var peso = input_peso.value
+
+            var calcular = peso / (altura * altura);
+            var IMC = calcular
+
+            if(IMC < 18.5){
+                 ('Abaixo do peso!')
+            } else if (IMC < 25){
+                alert ('Peso normal!')
+            } else 
+                alert ('Sobrepeso!!!')
+
+
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

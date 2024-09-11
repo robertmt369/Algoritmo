@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calcular emprestimo</h1>
+    informe valor do emprestimo:
+    <input type="text" id="input_emprestimo"><br>
+    informe numero da parcela:
+    <input type="text" id="input_parcela"><br>
+    informe a taxa de juros ao mês:
+    <input type="text" id="input_juros"><br>
+    
+    <button onclick="calcularprestaçâo()">Calcular prestaçâo</button>
+
+
+    <script>
+        function calcularprestaçâo(){
+            const valor = Number(input_emprestimo.value)
+            const parcela = Number(input_parcela.value)
+            const juros = Number(input_juros.value)
+
+
+            var total = (valor * juros * parcela) / 100
+
+
+
+
+            if(total <=1000){
+                alert (`Parcela aceitável: R$ ${total}`);
+            } else 
+            alert ('Parcela alta, considere aumentar o número de parcelas!')
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

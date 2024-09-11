@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulação de inscrição na academia</h1>
+    <label>nome completo:</label>
+    <input type="text" id="input_nome"><br>
+   
+    <label>idade:</label>
+    <input type="Number" id="input_idade"><br>
+   
+    <label>informe seu peso:</label>
+    <input type="Number" id="input_peso"><br>
+   
+    <label>informe sua altura:</label>
+    <input type="Number" id="input_altura"><br>
+   
+<label>Deseja um plano personal trainer? (Digite "sim" ou "não")</label>
+<input type="text" id="input_plano">
+     
+    <button onclick="calcularinscricao()">Calcular inscrição</button>
+    
+
+<script>
+function calcularinscricao(){
+  
+    const nome = input_nome.value
+
+    const idade = input_idade.value
+
+    const peso = input_peso.value
+
+    const altura = input_altura.value
+
+    const planopersonaltrainer = input_plano.value
+
+// calcular IMC do usuario
+var IMC_original = peso / (altura * altura);
+var IMC_inteiro = parseInt(IMC_original);
+
+
+
+// converter para CM
+var alturamt = altura / 100
+
+
+
+if(IMC_original < 18.5){
+  alert ('Abaixo do peso!')
+
+} else if(IMC_original >=18.5 && IMC_original < 24.9){
+    alert ('peso normal!')
+
+} else if(IMC_original >=25 && IMC_original < 29.9){
+    alert ('Sobrepeso')
+
+} else alert ('Obesidade!!!')
+
+
+
+// calcular mensalidade
+    if(planopersonaltrainer == 'sim') {
+        var soma = (50 + 100)
+    } 
+    if (planopersonaltrainer == 'não'){
+        var total = 100
+    }
+        
+    var soma2 = (soma)
+    var total3 = (total)
+    
+    // aplicando desconto
+    var desconto = 0;
+    if(idade >= 60){
+        desconto = 0.30;
+    } else if(idade >= 12 && idade <= 18){
+        desconto = 0.15;
+    }
+
+    soma2 *= (1 - desconto);
+    total3 *= (1 - desconto);
+    
+
+
+
+    alert('Classificação do IMC: ' + IMC_inteiro);
+    alert(planopersonaltrainer === 'sim' ? 'plano com personl trainer incluido' : 'plano sem personal trainer');
+    alert(nome + ', o valor total da sua mensalidade é de R$ ' + soma2.toFixed(2) +'.');
+    alert(nome + ', o valor total da sua mensalidade é de R$ ' + total3.toFixed(3) +'.' );
+
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

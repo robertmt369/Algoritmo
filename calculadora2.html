@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira</title>
+</head>
+<body>
+    <h1>Orchi System</h1>
+    <br>
+    <h2>Simulação da Calculadora</h2>
+    Qual é o custo de produção total (R$):
+    <input type="number"  id="input_preco" 
+    placeholder="Valor em reais">
+    <br>
+    Qual é o tempo de sua colheita em anos:
+    <input type="number"  id="input_anos" 
+    placeholder="Tempo em anos">
+    <br>
+    você possui controle de luminosidade? <br> <select id="input_controleLuz">
+    <option value="sim">sim</option>
+     <option value="não">não</option></select>
+    <br>
+    você possui controle de gás etileno? <br> <select id="input_controleGas">
+        <option value="sim">sim</option>
+        <option value="nao">não</option></select>
+    <br>
+    Qual é a area disponivel de plantio de sua estufa (M2):
+    <input type="number"  id="input_area" placeholder="Área em metros quadrados">
+    <br>
+
+    <button onclick="simulacao()">Fazer simulação</button>
+    <br>
+    <div id="div_resultado"></div>
+   
+</body>
+</html>
+
+<script>
+    function simulacao(){
+        var preco = Number(input_preco.value)
+        var anos = Number(input_anos.value)
+        var controleLuz = input_controleLuz.value
+        var controleGas = input_controleGas.value
+        var area = Number(input_area.value)
+
+        var areaPlantio = area/ 0.15; // area mínima necessaria para cultivar uma orquídea
+        var reducao = 0;              // a redução da colheita varia conforme os sistemas de controle que p usuário usa a estufa
+        var mensagem = "";
+
+        if (controleLuz == "sim" && controleGas == "não"){
+            reducao = 0.35; // reduz o tempo de colheita em 35%
+
+            mensagem = `Com um controle de luz adequado, 
+            sua produção pode ser acelerada em 35%, 
+            mas sem controle de gás etileno.`;
+
+        } else if (controleLuz == "não" && controleGas == "sim"){
+            reducao = 0.16; // reduz o tempo de colheita em 16%
+
+            mensagem = `Com um controle de gás etileno, 
+            sua produção pode ser acelerada em 16%, 
+            mesmo sem controle de luz.`;
+
+        } else if (controleLuz == "sim" && controleGas == "sim"){
+            reducao = 0.38; // reduz o tempo de colheita em 38%
+
+            mensagem = `Com controle de luz e de gás etileno, 
+            sua produção pode acelerar em 38%!`;
+
+        } else {mensagem = `Sem o controle de luz ou gás etileno, 
+            sua produção não terá melhorias significativas.`;
+        }
+
+        var tempoFinal = anos - (anos * reducao); // reduz o tempo estimado de colheita com base no percentual de redução, aí subtraímos esse valor do tempo original
+                                                  // o tempo de colheita é reduzido dependendo do controle de luz e gás etileno
+
+            div_resultado.innerHTML = `${mensagem} o tempo estimado de colheita será de aproximadamente ${tempoFinal} ano.`;
+
+
+
+
+    }
+
+
+
+
+</script>

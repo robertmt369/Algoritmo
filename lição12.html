@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular valor do frete</title>
+</head>
+<body>
+    informe o peso do pacote:
+    <input type="Number" id="input_peso"><br>
+    informe a distância a ser percorrida:
+    <input type="Number" id="input_distancia"><br>
+    <button onclick="calcularfrete()">Calcular frete</button>
+
+
+    <script>
+        function calcularfrete(){
+            const peso = Number(input_peso.value)
+            const distancia = Number(input_distancia.value)
+
+            if(peso <=5 && distancia <=100){
+                alert ('Frete Econômico!')
+
+            } else 
+            alert ('Frete normal!')
+
+
+
+
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprestimo</title>
+</head>
+<body>
+    informe o valor do emprestimo:
+    <input type="Number" id="input_emprestimo"><br>
+    informe a quantidade de parcelas:
+    <input type="Number" id="input_parcelas"><br>
+    <button onclick="calcularjuros()">Calcular juros</button>
+
+    <script>
+        function calcularjuros(){
+        const emprestimo = input_emprestimo.value
+        const parcelas = input_parcelas.value
+
+        // calcular os juros 0,02 = 2%
+        var juros = emprestimo * (1 + 0.02);
+        var total = juros
+
+
+        if(total <=50000){
+            alert (`Valor total a pagar em ${parcelas} meses é de R$ ${total}`)
+
+        } else alert ('Emprestimo de alto valor, consulte o gerente!')
+
+    
+    }
+
+    </script>
+</body>
+</html>
